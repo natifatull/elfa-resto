@@ -1,11 +1,10 @@
 class Navbar extends HTMLElement {
+  constructor() {
+    super();
+    this.url = window.location.hostname.includes('github.io') ? '/elfa-resto' : '/';
+  }
+
   connectedCallback() {
-    this.url = '/';
-
-    if (window.location.hostname.includes('github.io')) {
-      this.url += '/elfa-resto/';
-    }
-
     this.render();
   }
 
