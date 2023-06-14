@@ -4,7 +4,7 @@ class Navbar extends HTMLElement {
     this.url = '/';
 
     if (window.location.hostname.includes('github.io')) {
-      this.url += '/elfa-resto';
+      this.url += '/elfa-resto/';
     }
   }
 

@@ -2,7 +2,6 @@
 // https://restaurant-api.dicoding.dev/
 
 const CONFIG = {
-  KEY: '12767712fc0c3d8c42193e9b3ceb4cb6',
   BASE_URL: 'https://restaurant-api.dicoding.dev/',
   BASE_IMAGE_URL: 'https://restaurant-api.dicoding.dev/images/large/',
   crossorigin: 'anonymous',

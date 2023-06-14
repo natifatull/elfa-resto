@@ -1,4 +1,3 @@
-import CONFIG from '../global/config';
 import API_ENDPOINT from '../global/api-endpoint';
 
 class RestaurantSource {
@@ -17,7 +16,6 @@ class RestaurantSource {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Auth-Token': CONFIG.KEY,
       },
       body: JSON.stringify(data),
     });
