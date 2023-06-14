@@ -6,6 +6,7 @@ import LikeButtonInitiator from '../../utils/like-button-initiator';
 import PostReview from '../../utils/post-review';
 import { initSwalError } from '../../utils/swal-initiator';
 import { sendDataToWebsocket } from '../../utils/websocket-initiator';
+import CONFIG from '../../global/config';
 
 const Detail = {
   async render() {
@@ -80,11 +81,16 @@ const Detail = {
         // POST review
         await PostReview(url, nameInput.value, reviewInput.value);
 
-        // Send message to websocket server
-        sendDataToWebsocket({
+        // Save payload for websocket notification
+        const notificationPayload = {
+          image: `${CONFIG.BASE_IMAGE_URL}${data.restaurant.pictureId}`,
           name: nameInput.value,
           review: reviewInput.value,
-        });
+        };
+
+        localStorage.setItem(url.id, JSON.stringify(notificationPayload));
+
+        sendDataToWebsocket({ reviewNotificationId: url.id });
 
         // clear form input
         nameInput.value = '';
