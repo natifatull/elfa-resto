@@ -12,18 +12,25 @@ const WebSocketInitiator = {
 
   _onMessageHandler(message) {
     console.log('websocket onmessage handler => ', message);
+    try {
+      const reviewData = JSON.parse(message.data);
 
-    const reviewData = JSON.parse(message.data);
+      if (typeof reviewData === 'string') {
+        throw new Error('is not review message');
+      }
 
-    WebsocketNotif.sendNotification({
-      title: reviewData.name,
-      options: {
-        body: reviewData.review,
-        icon: 'icons/192x192.png',
-        image: 'https://i.ibb.co/nBh3jrM/roompy-android-web.png',
-        vibrate: [200, 100, 200],
-      },
-    });
+      WebsocketNotif.sendNotification({
+        title: reviewData.name,
+        options: {
+          body: reviewData.review,
+          icon: 'icons/192x192.png',
+          image: 'https://i.ibb.co/nBh3jrM/roompy-android-web.png',
+          vibrate: [200, 100, 200],
+        },
+      });
+    } catch (e) {
+      console.log(e);
+    }
   },
 };
 
