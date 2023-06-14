@@ -1,9 +1,4 @@
 class Navbar extends HTMLElement {
-  constructor() {
-    super();
-    this.url = window.location.hostname.includes('github.io') ? 'elfa-resto' : '/';
-  }
-
   connectedCallback() {
     this.render();
   }
@@ -13,7 +8,7 @@ class Navbar extends HTMLElement {
       <nav>
         <div class="menu-hp">
           <div>
-            <a href="${this.url}" class="logo-font"> Nafa Resto </a>
+            <a href="#/" class="logo-font"> Nafa Resto </a>
           </div>
 
           <div class="menu-container">
@@ -28,7 +23,7 @@ class Navbar extends HTMLElement {
         </div>
 
         <ul class="nav-list">
-          <li class="nav-item"><a href="${this.url}">Home</a></li>
+          <li class="nav-item"><a href="#/">Home</a></li>
           <li class="nav-item"><a href="#/favorite">Favorite</a></li>
           <li class="nav-item">
             <a
