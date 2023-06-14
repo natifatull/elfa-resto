@@ -24,8 +24,7 @@ class App {
 
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
-    // fix gh page
-    const page = routes[url.includes('elfa-resto') ? '/' : url];
+    const page = routes[url];
     this._content.innerHTML = await page.render();
     await page.afterRender();
   }
